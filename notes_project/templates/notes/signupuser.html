@@ -1,0 +1,24 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="signup-username" class="form-label">Username</label>
+          <input type="text" class="form-control" name="signupusername" id="signup-username" required>
+        </div>
+        <div class="mb-3">
+          <label for="signup-password1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="signuppassword1" id="signup-password1" required>
+        </div>
+        <div class="mb-3">
+          <label for="signup-password2" class="form-label">Confirm password</label>
+          <input type="password" class="form-control" name="signuppassword2" id="signup-password2" required>
+        </div>
+        {{ error }}
+        <br>
+        <button type="submit" class="btn btn-primary">Sing up</button>
+    </form>
+
+{% endblock %}

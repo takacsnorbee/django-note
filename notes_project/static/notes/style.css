@@ -1,0 +1,43 @@
+#notesApp {
+    padding-top: 60px;
+}
+
+footer {
+    background-color: white;
+}
+
+.important-note {
+    background-color: #ffc107;
+}
+
+.notes-element {
+    border-radius: .25rem;
+}
+
+.notes-element:hover {
+    background-color: #f8f9fa;
+}
+
+.sub-tile {
+    margin-left: 10px;
+}
+
+.del-on-tile {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    border: 1px solid #888888;
+    box-shadow: 1px 2px #888888;
+}
+
+.revert-btn {
+    margin-right: 5px;
+}
+
+.save-btn {
+    margin-left: 5px;
+}

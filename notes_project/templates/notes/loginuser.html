@@ -1,0 +1,19 @@
+{% extends 'notes/base.html' %}
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+            <div class="mb-3">
+              <label for="login-username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="loginusername" id="login-username">
+            </div>
+            <div class="mb-3">
+              <label for="login-password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="loginpassword" id="login-password">
+            </div>
+            {{ error }}
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+{% endblock %}

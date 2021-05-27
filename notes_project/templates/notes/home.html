@@ -1,0 +1,50 @@
+{% extends 'notes/base.html' %}
+{% load static%}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        
+        <div id="notesApp" class="container">
+            <h1 class="text-center">{{user.username}}[[ homePage ]]</h1>
+            <div class="row">
+                <div class="mb-3">
+                    <div v-for="note, i in allNote" class="notes-element border border-1 p-2 mb-3 d-flex align-items-start" 
+                        v-bind:class="{ 'important-note': importantArray[i] }" :key="note['id']">
+                        <div class="sub-tile flex-fill">
+                            <p class="fw-bold">
+                                [[ note['title'] ]]  [[ note['important'] ]]
+                            </p>
+                            <div>
+                                [[ note['description'] ]]
+                            </div>
+                        </div>
+                        <button class="del-on-tile" @click="delThisNote(note['id'])">X</button>
+                    </div>
+                </div>
+            </div>
+            <form action="" method="POST" class="row" >
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="titleInput">
+                </div>
+                <div class="mb-3">
+                    <label for="descInput" class="form-label">Description</label>
+                    <textarea class="form-control" name="descInput" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <input class="form-check-input" type="checkbox" value="True" name="importantInput">
+                    <label class="form-check-label" for="importantInput">Important</label>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary w-100 justify-self-center">Add new</button>
+                </div>
+             </form>
+        </div>
+
+    {% else %}
+        Please Login
+    {% endif %}
+
+    <script src="{% static 'notes\notes.js' %}"></script>
+{% endblock %}
